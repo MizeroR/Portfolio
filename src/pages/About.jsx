@@ -1,113 +1,81 @@
 import React from 'react'
 
-function About() {
-  const skills = [
-    { name: 'React', level: 90 },
-    { name: 'Flutter', level: 85 },
-    { name: 'JavaScript', level: 88 },
-    { name: 'Python', level: 80 },
-    { name: 'Machine Learning', level: 75 },
-    { name: 'Node.js', level: 82 }
-  ]
+const strengths = [
+  {
+    title: 'Product engineering',
+    text: 'I turn ideas into clear, usable experiences with thoughtful UX and modern frontend architecture.',
+    tone: 'bg-sky-50 text-sky-700',
+  },
+  {
+    title: 'Mobile & web builds',
+    text: 'From polished mobile interfaces to responsive web apps, I build interfaces that work beautifully across devices.',
+    tone: 'bg-amber-50 text-amber-700',
+  },
+  {
+    title: 'AI-enabled thinking',
+    text: 'I enjoy combining software development with practical AI ideas, experimentation, and product problem solving.',
+    tone: 'bg-emerald-50 text-emerald-700',
+  },
+]
 
+const stack = [
+  'React',
+  'Flutter',
+  'JavaScript',
+  'TypeScript',
+  'Python',
+  'Node.js',
+  'Machine Learning',
+  'UI Design',
+  'Product Thinking',
+]
+
+function About() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      {/* Hero Section */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold mb-6">About Me</h1>
-        <div className="w-32 h-32 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-6"></div>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-          I'm a passionate software engineer from Rwanda, dedicated to creating innovative solutions 
-          that make a difference. With expertise in mobile and web development, I love turning ideas into reality.
+    <section className="py-14 lg:py-20">
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-700">About</p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+          Building useful digital experiences with clarity and craft.
+        </h1>
+        <p className="mt-6 text-lg leading-8 text-slate-600">
+          I’m a software engineer from Rwanda who enjoys creating products that are simple,
+          intentional, and genuinely helpful. I work across web, mobile, and AI-inspired
+          problem solving, always aiming for a product experience people actually enjoy using.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 mb-16">
-        {/* Personal Info */}
-        <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-6">Personal Info</h2>
-          <div className="space-y-4">
-            <div className="flex justify-between">
-              <span className="font-medium">Name:</span>
-              <span>Mizero Reine</span>
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {strengths.map((strength) => (
+          <article key={strength.title} className="rounded-[1.75rem] border border-stone-200 bg-white p-6 shadow-sm">
+            <div className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${strength.tone}`}>
+              {strength.title}
             </div>
-            <div className="flex justify-between">
-              <span className="font-medium">Location:</span>
-              <span>Kigali, Rwanda</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="font-medium">Experience:</span>
-              <span>2+ Years</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="font-medium">Languages:</span>
-              <span>English, French, Kinyarwanda</span>
-            </div>
-          </div>
-        </div>
+            <p className="mt-5 text-base leading-7 text-slate-600">{strength.text}</p>
+          </article>
+        ))}
+      </div>
 
-        {/* What I Do */}
-        <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-6">What I Do</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold text-blue-600 dark:text-blue-400">Mobile Development</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Flutter & React apps</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-green-600 dark:text-green-400">Web Development</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">React, Node.js, Full-stack solutions</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-purple-600 dark:text-purple-400">Machine Learning</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">AI models & data analysis</p>
-            </div>
+      <div className="mt-16 rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">Tools & interests</p>
+            <h2 className="mt-2 text-2xl font-semibold text-slate-900">What I work with</h2>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {stack.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-stone-200 bg-stone-50 px-3 py-2 text-sm text-slate-700"
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Skills Section */}
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Technical Skills</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {skills.map((skill, index) => (
-            <div key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <div className="flex justify-between mb-2">
-                <span className="font-medium">{skill.name}</span>
-                <span className="text-sm text-gray-600 dark:text-gray-400">{skill.level}%</span>
-              </div>
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                <div 
-                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${skill.level}%` }}
-                ></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Experience & Education */}
-      <div className="grid md:grid-cols-2 gap-12">
-        
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-8">Education</h2>
-          <div className="space-y-6">
-            <div className="border-l-4 border-purple-500 pl-6">
-              <h3 className="font-semibold">Software Engineering</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">African Leadership University • 2023 - today</p>
-              <p className="text-sm mt-2">Focus on software engineering and machine learning</p>
-            </div>
-            <div className="border-l-4 border-orange-500 pl-6">
-              <h3 className="font-semibold">Certifications</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Various Online Platforms</p>
-              <p className="text-sm mt-2">React, Flutter, Machine Learning certifications</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   )
 }
 
